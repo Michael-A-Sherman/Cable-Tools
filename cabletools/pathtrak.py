@@ -2,8 +2,8 @@ import requests
 
 
 # Link for PathTrak server except for the "id" number of the node
-base_link = 'https://nept01.chartercom.com/pathtrak/spectrum/view.html#/hcu/'
-search_link = 'https://nept01.chartercom.com/pathtrak/api/elements/search/'
+base_link = "https://nept01.chartercom.com/pathtrak/spectrum/view.html#/hcu/"
+search_link = "https://nept01.chartercom.com/pathtrak/api/elements/search/"
 
 
 # Uses Pathtrak API to search for node
@@ -16,7 +16,7 @@ def search_pathtrak_api(user_input):
 
 def search(node):
     if len(node) == 1:
-        return base_link + str(node[0]['id'])  # pulls id element from results
+        return base_link + str(node[0]["id"])  # pulls id element from results
     else:
         results = []
         for nodes in node:
