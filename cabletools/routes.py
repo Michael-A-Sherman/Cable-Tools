@@ -2,7 +2,7 @@ from flask import request, render_template, redirect, flash, make_response
 from cabletools import app
 from cabletools.cable_calc import get_loss
 from cabletools.forms import CalcForm, PathTrakForm
-from cabletools.pathtrak import search_pathtrak_api, search
+from cabletools.pathtrak import search_pathtrak_api, search, vpn_search
 
 
 @app.route("/", methods=["POST", "GET"])
@@ -12,7 +12,7 @@ def new_link_create():
     print(form.errors)
     if request.method == "POST":
         info = search_pathtrak_api(request.form["node"].upper().rstrip())
-        link = search(info)
+        link = vpn_search(info)
         if form.validate():
             if len(info) == 1:
                 return redirect(link, code=302)
@@ -63,4 +63,23 @@ def direct_link(node):
                 return render_template("results.html", form=form, link=link)
     else:
         return render_template("results.html", form=form, link=link)
+    return render_template("index.html", form=form)
+
+
+@app.route("/vpn", methods=["POST", "GET"])
+def vpn_link_create():
+    form = PathTrakForm(request.form)
+    print(form.errors)
+    if request.method == "POST":
+        info = search_pathtrak_api(request.form["node"].upper().rstrip())
+        link = vpn_search(info)
+        if form.validate():
+            if len(info) == 1:
+                return redirect(link, code=302)
+            elif len(info) == 0:
+                flash("Node Not Found, Try Again")
+            else:
+                return render_template("vpn_results.html", form=form, link=link)
+        else:
+            flash("All the form fields are required. ")
     return render_template("index.html", form=form)
