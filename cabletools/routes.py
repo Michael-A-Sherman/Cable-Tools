@@ -12,7 +12,7 @@ def new_link_create():
     print(form.errors)
     if request.method == "POST":
         info = search_pathtrak_api(request.form["node"].upper().rstrip())
-        link = vpn_search(info)
+        link = search(info)
         if form.validate():
             if len(info) == 1:
                 return redirect(link, code=302)

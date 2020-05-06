@@ -13,7 +13,7 @@ vpn_base_link = (
 # Returns search results as list in JSON format
 def search_pathtrak_api(user_input):
     url = search_link + user_input
-    get_data = requests.get(url, "accept: application/json")
+    get_data = requests.get(url, "accept: application/json", verify=False)
     return get_data.json()
 
 
