@@ -80,7 +80,7 @@
                     {% block testing %}
                     {% endblock %}
                     <div class="container-login100-form-btn">
-                        <a href="/calculator">
+                        <a href="{{ url_for('calculator') }}">
                             <img src="{{ url_for('static', filename='images/calc.ico/favicon-32x32.png') }}">
                             Cable Loss Calculator
                         </a>

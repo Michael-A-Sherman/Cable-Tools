@@ -2,18 +2,17 @@ from flask import request, render_template, redirect, flash, make_response
 from cabletools import app
 from cabletools.cable_calc import get_loss
 from cabletools.forms import CalcForm, PathTrakForm
-from cabletools.pathtrak import search_pathtrak_api, search, canton_search_pathtrak_api, canton_search
+from cabletools.pathtrak import pathtrak_search, spectrum_view
 
 
 @app.route("/", methods=["POST", "GET"])
 @app.route("/index", methods=["POST", "GET"])
-def new_link_create():
+def michigan():
+    mich_base_link = "https://nept01.chartercom.com/pathtrak/"
     form = PathTrakForm(request.form)
-    print(form.errors)
-    print("Server name is: " + str(app.config['SERVER_NAME']))
     if request.method == "POST":
-        info = search_pathtrak_api(request.form["node"].upper().rstrip())
-        link = search(info)
+        info = pathtrak_search(mich_base_link, request.form["node"].upper().rstrip())
+        link = spectrum_view(mich_base_link, info)
         if form.validate():
             if len(info) == 1:
                 return redirect(link, code=302)
@@ -27,13 +26,11 @@ def new_link_create():
 
 
 @app.route("/calculator", methods=["POST", "GET"])
-def hello():
+def calculator():
     form = CalcForm(request.form)
-    print(form.errors)
     if request.method == "POST":
         footage = request.form["footage"]
         cable = request.form["cable"]
-        print(footage)
         if form.validate():
             results = get_loss(int(footage), cable)
             flash("55 MHz -  " + "{:2.2f}".format(results[0]) + " dB")
@@ -66,13 +63,14 @@ def direct_link(node):
         return render_template("results.html", form=form, link=link)
     return render_template("index.html", form=form)
 
+
 @app.route('/', subdomain ='test', methods=["POST", "GET"]) 
-def canton_new_link_create():
+def canton():
+    base_link = "https://nept01.chartercom.com/pathtrak/"
     form = PathTrakForm(request.form)
-    print(form.errors)
     if request.method == "POST":
-        info = canton_search_pathtrak_api(request.form["node"].upper().rstrip())
-        link = canton_search(info)
+        info = pathtrak_search(base_link, request.form["node"].upper().rstrip())
+        link = spectrum_view(base_link, info)
         if form.validate():
             if len(info) == 1:
                 return redirect(link, code=302)
