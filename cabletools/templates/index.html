@@ -15,33 +15,33 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     {#    Favicon #}
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/wave.ico/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/wave.ico/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/wave.ico/favicon-16x16.png">
-    <link rel="manifest" href="/static/images/wave.ico/site.webmanifest">
-    <link rel="mask-icon" href="/static/images/wave.ico/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/wave.ico/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/wave.ico/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/wave.ico/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='images/wave.ico/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ url_for('static', filename='images/wave.ico/safari-pinned-tab.svg', color='#5bbad5') }}">
     <meta name="apple-mobile-web-app-title" content="PathTrak Link">
     <meta name="application-name" content="PathTrak Link">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/iconic/css/material-design-iconic-font.min.css') }}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animate/animate.css') }}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/css-hamburgers/hamburgers.min.css') }}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animsition/css/animsition.min.css') }}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/select2/select2.min.css') }}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/css/util.css">
-	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -65,7 +65,7 @@
                         PathTrak Link
 					</span>
 					<span class="login100-form-avatar mt-5">
-						<img src="/static/images/sound-1837423_1280.png" alt="Soundwave">
+						<img src="{{ url_for('static', filename='images/sound-1837423_1280.png', alt='Soundwave') }}">
                     </span>
                     <div class="wrap-input100 validate-input m-t-85 m-b-35">
                             <p>Enter Node</p>
@@ -81,7 +81,7 @@
                     {% endblock %}
                     <div class="container-login100-form-btn">
                         <a href="/calculator">
-                            <img src="/static/images/calc.ico/favicon-32x32.png">
+                            <img src="{{ url_for('static', filename='images/calc.ico/favicon-32x32.png') }}">
                             Cable Loss Calculator
                         </a>
                     </div>
@@ -89,15 +89,15 @@
                 </form>
 
 <!--===============================================================================================-->
-	<script src="/static/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
 <!--===============================================================================================-->
-	<script src="/static/vendor/animsition/js/animsition.min.js"></script>
+	<script src="{{ url_for('static', filename='vendor/animsition/js/animsition.min.js') }}"></script>
 <!--===============================================================================================-->
-	<script src="/static/vendor/bootstrap/js/popper.js"></script>
-	<script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="{{ url_for('static', filename='vendor/bootstrap/js/popper.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 <!--===============================================================================================-->
-	<script src="/static/vendor/select2/select2.min.js"></script>
+	<script src="{{ url_for('static', filename='vendor/select2/select2.min.js') }}"></script>
 <!--===============================================================================================-->
-	<script src="/static/js/main.js"></script>
+	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
