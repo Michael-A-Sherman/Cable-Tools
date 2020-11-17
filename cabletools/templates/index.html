@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127662864-1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-      gtag('config', 'UA-127662864-1');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-127662864-1');
     </script>
 
-	<title>PathTrak Link</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    {#    Favicon #}
+    <title>PathTrak Link</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> {# Favicon #}
     <link rel="apple-touch-icon" sizes="180x180" href="/static/images/wave.ico/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/static/images/wave.ico/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/static/images/wave.ico/favicon-16x16.png">
@@ -25,79 +28,83 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/fonts/iconic/css/material-design-iconic-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/vendor/animate/animate.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/css/util.css">
-	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
-<!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <!--===============================================================================================-->
 </head>
+
 <body>
     <div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100 p-t-85 p-b-20">
-                        <h3 style="text-align: center">
-                        {% with messages = get_flashed_messages(with_categories=true) %}
-                        {% if messages %}
-                        <ul>
+        <div class="container-login100">
+            <div class="wrap-login100 p-t-85 p-b-20">
+                <h3 style="text-align: center">
+                    {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %}
+                    <ul>
                         {% for message in messages %}
-                            <li>{{ message[1] }}</li>
+                        <li>{{ message[1] }}</li>
                         {% endfor %}
-                        </ul>
-                        {% endif %}
-                        {% endwith %}
-                        </h3><br>
+                    </ul>
+                    {% endif %} {% endwith %}
+                </h3><br>
                 <form action="" method="post">
                     {{ form.csrf }}
-					<span class="login100-form-title p-b-70">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>This tool is shutting down!</strong><br> I created this as a way to help maintenance techs in the field. On Friday 11/27, I will no longer be with Charter and I will be shutting down this server.<br> If someone wants to
+                        take this project over, <a href="/contact">click here</a> for more info.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <span class="login100-form-title p-b-70">
                         PathTrak Link
 					</span>
-					<span class="login100-form-avatar mt-5">
+                    <span class="login100-form-avatar mt-5">
 						<img src="/static/images/sound-1837423_1280.png" alt="Soundwave">
                     </span>
                     <div class="wrap-input100 validate-input m-t-85 m-b-35">
-                            <p>Enter Node</p>
+                        <p>Enter Node</p>
                         {{ form.node }}
-						<span class="focus-input100"></span>
-					</div>
-					<div class="container-login100-form-btn">
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="container-login100-form-btn">
                         <button class="login100-form-btn">
 							Submit
 						</button>
                     </div>
-                    {% block testing %}
-                    {% endblock %}
                     <div class="container-login100-form-btn">
                         <a href="/calculator">
-                            <img src="/static/images/calc.ico/favicon-32x32.png">
-                            Cable Loss Calculator
+                            <img src="/static/images/calc.ico/favicon-32x32.png"> Cable Loss Calculator
                         </a>
                     </div>
                     <div class="container-login100-form-btn">
                 </form>
 
-<!--===============================================================================================-->
-	<script src="/static/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="/static/vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="/static/vendor/bootstrap/js/popper.js"></script>
-	<script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="/static/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="/static/js/main.js"></script>
+                <!--===============================================================================================-->
+                <script src="/static/vendor/jquery/jquery-3.2.1.min.js"></script>
+                <!--===============================================================================================-->
+                <script src="/static/vendor/animsition/js/animsition.min.js"></script>
+                <!--===============================================================================================-->
+                <script src="/static/vendor/bootstrap/js/popper.js"></script>
+                <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+                <!--===============================================================================================-->
+                <script src="/static/vendor/select2/select2.min.js"></script>
+                <!--===============================================================================================-->
+                <script src="/static/js/main.js"></script>
 </body>
+
 </html>

@@ -65,3 +65,8 @@ def direct_link(node):
         return render_template("results.html", form=form, link=link)
     return render_template("index.html", form=form)
 
+
+@app.route("/contact")
+def contact():
+    
+    return render_template("contact.html")
