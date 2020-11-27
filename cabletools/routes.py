@@ -2,7 +2,7 @@ from flask import request, render_template, redirect, flash, make_response
 from cabletools import app
 from cabletools.cable_calc import get_loss
 from cabletools.forms import CalcForm, PathTrakForm
-from cabletools.pathtrak import search_pathtrak_api, search, vpn_search
+from cabletools.pathtrak import search_pathtrak_api, search
 
 
 @app.route("/", methods=["POST", "GET"])

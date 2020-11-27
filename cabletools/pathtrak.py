@@ -26,12 +26,3 @@ def search(node):
             results.append(nodes)
         return results
 
-
-def vpn_search(node):
-    if len(node) == 1:
-        return vpn_base_link + str(node[0]["id"])  # pulls id element from results
-    else:
-        results = []
-        for nodes in node:
-            results.append(nodes)
-        return results
